@@ -5,6 +5,8 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>config.h</itemPath>
+      <itemPath>user.h</itemPath>
+      <itemPath>function.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -388,6 +390,8 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-abf7"/>
         <property key="poweroptions.powerenable" value="true"/>
+        <property key="programmerToGoFilePath"
+                  value="/Users/rk76fewf/MPLABXProjects/2022_B_main.X/debug/default/2022_B_main_ptg"/>
         <property key="programmerToGoImageName" value="2022_B_main_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

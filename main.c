@@ -1,12 +1,8 @@
 #include <xc.h>
 #include "config.h"
-#define FCY 16000000UL
+#include "user.h"
+#include "function.h"
 #include <libpic30.h>
-
-#define LED2 _LATB13
-#define LED3 _LATB12
-
-void setup(void);
 
 int main(void)
 {
