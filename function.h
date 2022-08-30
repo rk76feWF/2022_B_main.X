@@ -9,5 +9,8 @@
 #define FUNCTION_H
 
 void setup(void);
+void setUART(void);
+
+void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
 
 #endif /* FUNCTION_H */

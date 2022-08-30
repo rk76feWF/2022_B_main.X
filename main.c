@@ -41,5 +41,7 @@ void setup(void)
     _TRISB13 = 0;
     _TRISB12 = 0;
 
+    setUART();
+
     return;
 }
