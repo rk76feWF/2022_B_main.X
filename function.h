@@ -10,6 +10,7 @@
 
 #include "user.h"
 #include "controller.h"
+#include "moterMain.h"
 
 void setup(void);
 void setUART(void);
@@ -26,7 +27,11 @@ void convertXY(int x, int y, double *angle, double *power);
 
 void setTimer(void);
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void);
+void __attribute__((interrupt, no_auto_psv)) _T4Interrupt(void);
 
+void drive(double *moterMain, controller_t *controller);
+void omni4vector(double *moterMain, double angle, double power);
+void moter(int number, double power);
 void setPWM(void);
 
 #endif /* FUNCTION_H */

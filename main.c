@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 controller_t controller;
+double moterMain[4];
 
 int main(void)
 {
@@ -14,11 +15,12 @@ int main(void)
     while (1)
     {
         char buf[128];
-        sprintf(buf, "%3d %3d %3d %3d   %d %d %d %d | %d %d %d %d | %d %d %d %d",                           \
-                controller.Lx_scalar, controller.Ly_scalar, controller.Rx_scalar, controller.Ry_scalar,     \
-                controller.btn_UP, controller.btn_DOWN, controller.btn_RIGHT, controller.btn_LEFT,          \
-                controller.btn_Triangle, controller.btn_Cross, controller.btn_Circle, controller.btn_Square,\
-                controller.btn_L1, controller.btn_L2, controller.btn_R1, controller.btn_R2                  \
+        sprintf(buf, "%d--%3d %3d %3d %3d   %d %d %d %d | %d %d %d %d | %d %d %d %d | %lf %lf %lf %lf", controller.FIFO.num,
+                controller.Lx_scalar, controller.Ly_scalar, controller.Rx_scalar, controller.Ry_scalar,
+                controller.btn_UP, controller.btn_DOWN, controller.btn_RIGHT, controller.btn_LEFT,
+                controller.btn_Triangle, controller.btn_Cross, controller.btn_Circle, controller.btn_Square,
+                controller.btn_L1, controller.btn_L2, controller.btn_R1, controller.btn_R2, \
+                moterMain[0], moterMain[1], moterMain[2], moterMain[3] \
                 );
         prints(buf);
     }
@@ -49,6 +51,15 @@ void setup(void)
 
     _TRISB13 = 0;
     _TRISB12 = 0;
+
+    _TRISE4 = 0;
+    _TRISE5 = 0;
+    _TRISE6 = 0;
+    _TRISE7 = 0;
+    _TRISE0 = 0;
+    _TRISE1 = 0;
+    _TRISE2 = 0;
+    _TRISE3 = 0;
 
     setUART();
     setPWM();

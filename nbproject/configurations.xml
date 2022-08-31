@@ -8,6 +8,7 @@
       <itemPath>user.h</itemPath>
       <itemPath>function.h</itemPath>
       <itemPath>controller.h</itemPath>
+      <itemPath>moterMain.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,6 +23,7 @@
       <itemPath>pwm.c</itemPath>
       <itemPath>controller.c</itemPath>
       <itemPath>timer.c</itemPath>
+      <itemPath>moterMain.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
