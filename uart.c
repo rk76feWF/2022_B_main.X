@@ -2,6 +2,8 @@
 #include "user.h"
 #include "function.h"
 
+extern controller_t controller;
+
 void setUART(void)
 {
     // U1のピンの設定
@@ -22,10 +24,10 @@ void setUART(void)
     U1STAbits.UTXEN = 1;   // 送信有効化
 
     // U2のピンの設定
-    _TRISD9 = 1;  // RX
-    _TRISD8 = 0;  // TX
-    _U2RXR = 4;   // RX
-    _RP2R = 5;    // TX
+    _TRISD9 = 1; // RX
+    _TRISD8 = 0; // TX
+    _U2RXR = 4;  // RX
+    _RP2R = 5;   // TX
 
     // U2モジュールの設定
     U2MODE = 0x0000;
@@ -51,8 +53,23 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void)
 {
-    U2TXREG = U2RXREG;
+    enqueue(&controller.FIFO, U2RXREG);
     _U2RXIF = 0;
+
+    return;
+}
+
+void prints(char *text)
+{
+    U1TXREG = 0x0a;
+    U1TXREG = 0x0d;
+
+    while (*text != '\0')
+    {
+        while (U1STAbits.TRMT == 0)
+            ;
+        U1TXREG = *text++;
+    }
 
     return;
 }

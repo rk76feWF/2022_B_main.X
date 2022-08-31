@@ -3,17 +3,20 @@
 #include "user.h"
 #include "function.h"
 #include <libpic30.h>
+#include <stdio.h>
+
+controller_t controller;
 
 int main(void)
 {
     setup();
 
+    char buf[64];
     while (1)
     {
-        OC1R = F_CYCLE * 60.0 / 100.0;
-        OC2R = F_CYCLE * 30.0 / 100.0;
-        OC3R = F_CYCLE * 30.0 / 100.0;
-        OC4R = F_CYCLE * 60.0 / 100.0;
+        readController(&controller);
+        sprintf(buf, "%d %d", controller.Lx_scalar, controller.Ly_scalar);
+        prints(buf);
     }
 
     return 0;
