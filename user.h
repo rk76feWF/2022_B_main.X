@@ -11,6 +11,16 @@
 #define FCY 16000000UL
 
 #define LED2 _LATB13
-#define LED3 _LATB12
+#define LED3 _LATB1
+
+typedef unsigned char data_t;
+
+#define QUEUE_SIZE (64)
+typedef struct
+{
+    int head;
+    int num;
+    data_t data[QUEUE_SIZE];
+} queue_t;
 
 #endif /* USER_H */

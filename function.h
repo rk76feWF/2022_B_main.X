@@ -13,4 +13,7 @@ void setUART(void);
 
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
 
+int enqueue(queue_t *que, data_t enq_data);
+int dequeue(queue_t *que, data_t *deq_data);
+
 #endif /* FUNCTION_H */
