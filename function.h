@@ -24,6 +24,9 @@ int dequeue(queue_t *que, data_t *deq_data);
 int readController(controller_t *controller_data);
 void convertXY(int x, int y, double *angle, double *power);
 
+void setTimer(void);
+void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void);
+
 void setPWM(void);
 
 #endif /* FUNCTION_H */

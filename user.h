@@ -11,7 +11,7 @@
 #define FCY 16000000UL
 
 #define LED2 _LATB13
-#define LED3 _LATB1
+#define LED3 _LATB12
 
 typedef unsigned char data_t;
 

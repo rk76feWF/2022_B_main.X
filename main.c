@@ -11,11 +11,15 @@ int main(void)
 {
     setup();
 
-    char buf[64];
     while (1)
     {
-        readController(&controller);
-        sprintf(buf, "%d %d", controller.Lx_scalar, controller.Ly_scalar);
+        char buf[128];
+        sprintf(buf, "%3d %3d %3d %3d   %d %d %d %d | %d %d %d %d | %d %d %d %d",                           \
+                controller.Lx_scalar, controller.Ly_scalar, controller.Rx_scalar, controller.Ry_scalar,     \
+                controller.btn_UP, controller.btn_DOWN, controller.btn_RIGHT, controller.btn_LEFT,          \
+                controller.btn_Triangle, controller.btn_Cross, controller.btn_Circle, controller.btn_Square,\
+                controller.btn_L1, controller.btn_L2, controller.btn_R1, controller.btn_R2                  \
+                );
         prints(buf);
     }
 
@@ -48,6 +52,7 @@ void setup(void)
 
     setUART();
     setPWM();
+    setTimer();
 
     return;
 }
