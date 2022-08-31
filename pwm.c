@@ -28,5 +28,17 @@ void setPWM(void)
     OC4R = 0;
     OC4RS = F_CYCLE;
 
+    OC5CON1 = 0b0001110000000110;
+    OC5CON2 = 0b0000000000011111;
+    _RP23R = 22;
+    OC5R = 0;
+    OC5RS = F_CYCLE;
+
+    OC6CON1 = 0b0001110000000110;
+    OC6CON2 = 0b0000000000011111;
+    _RP22R = 23;
+    OC6R = 0;
+    OC6RS = F_CYCLE;
+
     return;
 }

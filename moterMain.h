@@ -16,5 +16,9 @@
 #define M3S2 (_LATE1)
 #define M4S1 (_LATE2)
 #define M4S2 (_LATE3)
+#define M5S1 (_LATD6)
+#define M5S2 (_LATD7)
+#define M6S1 (_LATF0)
+#define M6S2 (_LATF1)
 
 #endif /* MOTERMAIN_H */

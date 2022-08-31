@@ -60,6 +60,10 @@ void setup(void)
     _TRISE1 = 0;
     _TRISE2 = 0;
     _TRISE3 = 0;
+    _TRISD6 = 0;
+    _TRISD7 = 0;
+    _TRISF0 = 0;
+    _TRISF1 = 0;
 
     setUART();
     setPWM();

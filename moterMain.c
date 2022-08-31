@@ -68,6 +68,16 @@ void moter(int number, double power)
         M4S2 = S2;
         OC4R = (int)(fabs(power) * F_CYCLE / 100.0);
         break;
+    case 5:
+        M5S1 = S1;
+        M5S2 = S2;
+        OC5R = (int)(fabs(power) * F_CYCLE / 100.0);
+        break;
+    case 6:
+        M6S1 = S1;
+        M6S2 = S2;
+        OC6R = (int)(fabs(power) * F_CYCLE / 100.0);
+        break;
     }
     return;
 }
