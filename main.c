@@ -10,8 +10,10 @@ int main(void)
 
     while (1)
     {
-        LED2 = LED3 = ~LED2;
-        __delay_ms(1000);
+        OC1R = F_CYCLE * 60.0 / 100.0;
+        OC2R = F_CYCLE * 30.0 / 100.0;
+        OC3R = F_CYCLE * 30.0 / 100.0;
+        OC4R = F_CYCLE * 60.0 / 100.0;
     }
 
     return 0;
@@ -42,6 +44,7 @@ void setup(void)
     _TRISB12 = 0;
 
     setUART();
+    setPWM();
 
     return;
 }

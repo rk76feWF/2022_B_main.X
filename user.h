@@ -23,4 +23,6 @@ typedef struct
     data_t data[QUEUE_SIZE];
 } queue_t;
 
+#define F_CYCLE (320 - 1)
+
 #endif /* USER_H */
