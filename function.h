@@ -13,6 +13,7 @@
 #include "moterMain.h"
 
 void setup(void);
+void setIO(void);
 void setUART(void);
 void prints(char *text);
 

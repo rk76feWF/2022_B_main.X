@@ -34,7 +34,18 @@ void setup(void)
     _COSC = 0b001;
     _NOSC = 0b001;
     CLKDIV = 0x0000;
+    
+    setIO();
+    setUART();
+    setPWM();
+    setTimer();
 
+    return;
+}
+
+void setIO(void)
+{
+    // Analog or Digital
     ANSB = 0x0000;
     ANSC = 0x0000;
     ANSD = 0x0000;
@@ -49,9 +60,11 @@ void setup(void)
     TRISF = 0xffff;
     TRISG = 0xffff;
 
+    // LED
     _TRISB13 = 0;
     _TRISB12 = 0;
 
+    // LAN
     _TRISE4 = 0;
     _TRISE5 = 0;
     _TRISE6 = 0;
@@ -64,10 +77,6 @@ void setup(void)
     _TRISD7 = 0;
     _TRISF0 = 0;
     _TRISF1 = 0;
-
-    setUART();
-    setPWM();
-    setTimer();
-
+    
     return;
 }
