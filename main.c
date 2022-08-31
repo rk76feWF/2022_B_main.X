@@ -14,15 +14,26 @@ int main(void)
 
     while (1)
     {
-        // デバッグ用
-        char buf[128];
-        sprintf(buf, "%3d %3d %3d %3d   %d %d %d %d | %d %d %d %d | %d %d %d %d | %lf %lf %lf %lf",
-                controller.Lx_scalar, controller.Ly_scalar, controller.Rx_scalar, controller.Ry_scalar,
-                controller.btn_UP, controller.btn_DOWN, controller.btn_RIGHT, controller.btn_LEFT,
-                controller.btn_Triangle, controller.btn_Cross, controller.btn_Circle, controller.btn_Square,
-                controller.btn_L1, controller.btn_L2, controller.btn_R1, controller.btn_R2,
-                moterMain[0], moterMain[1], moterMain[2], moterMain[3]);
-        prints(buf);
+        // 展開
+        if (controller.btn_Circle)
+        {
+            moter(5, 20);
+            moter(6, 20);
+        }
+        
+        // 縮小
+        if (controller.btn_Cross)
+        {
+            moter(5, -20);
+            moter(6, -20);
+        }
+        
+        // 展開機構停止
+        if (controller.btn_Triangle)
+        {
+            moter(5, 0);
+            moter(6, 0);
+        }
     }
 
     return 0;
