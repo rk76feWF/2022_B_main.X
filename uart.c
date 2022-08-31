@@ -19,7 +19,7 @@ void setUART(void)
     U1BRG = 103;           // ボーレート設定
     _U1RXIE = 1;           // 割り込みを有効化
     _U1RXIF = 0;           // 割り込みのフラグを下げる
-    _U1RXIP = 1;           // 割り込み優先度の設定
+    _U1RXIP = 7;           // 割り込み優先度の設定
     U1MODEbits.UARTEN = 1; // UART有効化
     U1STAbits.UTXEN = 1;   // 送信有効化
 
@@ -36,7 +36,7 @@ void setUART(void)
     U2BRG = 103;           // ボーレート設定
     _U2RXIE = 1;           // 割り込みを有効化
     _U2RXIF = 0;           // 割り込みのフラグを下げる
-    _U2RXIP = 1;           // 割り込み優先度の設定
+    _U2RXIP = 7;           // 割り込み優先度の設定
     U2MODEbits.UARTEN = 1; // UART有効化
     U2STAbits.UTXEN = 1;   // 送信有効化
 
@@ -45,7 +45,7 @@ void setUART(void)
 
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
 {
-    U1TXREG = U1RXREG;
+    //    U1TXREG = U1RXREG;
     _U1RXIF = 0;
 
     return;
@@ -54,6 +54,7 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
 void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void)
 {
     enqueue(&controller.FIFO, U2RXREG);
+
     _U2RXIF = 0;
 
     return;

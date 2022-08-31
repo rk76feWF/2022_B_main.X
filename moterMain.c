@@ -51,22 +51,22 @@ void moter(int number, double power)
     case 1:
         M1S1 = S1;
         M1S2 = S2;
-        OC1R = (int)(fabs(power) / 100 * F_CYCLE);
+        OC1R = (int)(fabs(power) * F_CYCLE / 100.0);
         break;
     case 2:
         M2S1 = S1;
         M2S2 = S2;
-        OC2R = (int)(fabs(power) / 100 * F_CYCLE);
+        OC2R = (int)(fabs(power) * F_CYCLE / 100.0);
         break;
     case 3:
         M3S1 = S1;
         M3S2 = S2;
-        OC3R = (int)(fabs(power) / 100 * F_CYCLE);
+        OC3R = (int)(fabs(power) * F_CYCLE / 100.0);
         break;
     case 4:
         M4S1 = S1;
         M4S2 = S2;
-        OC4R = (int)(fabs(power) / 100 * F_CYCLE);
+        OC4R = (int)(fabs(power) * F_CYCLE / 100.0);
         break;
     }
     return;
