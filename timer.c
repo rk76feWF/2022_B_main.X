@@ -32,10 +32,13 @@ void setTimer(void)
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
 {
     static int cnt = 0;
-    if (readController(&controller) == -2)
+    if (readController(&controller))
         cnt++;
     else
+    {
+        LED2 = LED3 = 0;
         cnt = 0;
+    }
 
     if (cnt >= 10)
     {
