@@ -63,6 +63,13 @@ void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
         controller.btn_R1 = 0;
         controller.btn_R2 = 0;
 
+        moter(1, 0);
+        moter(2, 0);
+        moter(3, 0);
+        moter(4, 0);
+        moter(5, 0);
+        moter(6, 0);
+
         LED2 = LED3 = 1;
         cnt--;
     }
