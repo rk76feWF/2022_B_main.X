@@ -66,14 +66,12 @@ void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
         LED2 = LED3 = ~LED2;
     }
     _T2IF = 0;
-
-    return;
+    
 }
 
 void __attribute__((interrupt, no_auto_psv)) _T4Interrupt(void)
 {
     drive(moterMain, &controller);
     _T4IF = 0;
-
-    return;
+    
 }

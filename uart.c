@@ -48,7 +48,6 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
     //    U1TXREG = U1RXREG;
     _U1RXIF = 0;
 
-    return;
 }
 
 void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void)
@@ -57,7 +56,6 @@ void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void)
 
     _U2RXIF = 0;
 
-    return;
 }
 
 void prints(char *text)
