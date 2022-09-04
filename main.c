@@ -11,31 +11,12 @@ double moterMain[4];
 int main(void)
 {
     controller.L_angle = 0; // externの方で使う前に確定させる。
-    
+
     setup();
 
     while (1)
     {
-        // 展開
-        if (controller.btn_Circle)
-        {
-            moter(5, 20);
-            moter(6, 20);
-        }
-        
-        // 縮小
-        if (controller.btn_Cross)
-        {
-            moter(5, -20);
-            moter(6, -20);
-        }
-        
-        // 展開機構停止
-        if (controller.btn_Triangle)
-        {
-            moter(5, 0);
-            moter(6, 0);
-        }
+        tenkai(&controller);
     }
 
     return 0;
@@ -47,11 +28,12 @@ void setup(void)
     _COSC = 0b001;
     _NOSC = 0b001;
     CLKDIV = 0x0000;
-    
+
     setIO();
     setUART();
     setPWM();
     setTimer();
+    setCN();
 
     return;
 }
@@ -90,6 +72,6 @@ void setIO(void)
     _TRISD7 = 0;
     _TRISF0 = 0;
     _TRISF1 = 0;
-    
+
     return;
 }

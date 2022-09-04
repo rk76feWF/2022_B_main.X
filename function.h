@@ -35,4 +35,8 @@ void omni4vector(double *moterMain, double angle, double power);
 void moter(int number, double power);
 void setPWM(void);
 
+void tenkai(controller_t *ctrl);
+void setCN(void);
+void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void);
+
 #endif /* FUNCTION_H */

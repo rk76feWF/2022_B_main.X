@@ -24,6 +24,7 @@
       <itemPath>controller.c</itemPath>
       <itemPath>timer.c</itemPath>
       <itemPath>moterMain.c</itemPath>
+      <itemPath>tenkai.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
