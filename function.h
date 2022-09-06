@@ -19,6 +19,8 @@ void prints(char *text);
 
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
 void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void);
+void __attribute__((interrupt, no_auto_psv)) _U3RXInterrupt(void);
+void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void);
 
 int enqueue(queue_t *que, data_t enq_data);
 int dequeue(queue_t *que, data_t *deq_data);

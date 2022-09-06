@@ -11,7 +11,7 @@ double moterMain[4];
 int main(void)
 {
     controller.L_angle = 0; // externの方で使う前に確定させる。
-    
+
     setup();
 
     while (1)
@@ -22,14 +22,14 @@ int main(void)
             moter(5, 20);
             moter(6, 20);
         }
-        
+
         // 縮小
         if (controller.btn_Cross)
         {
             moter(5, -20);
             moter(6, -20);
         }
-        
+
         // 展開機構停止
         if (controller.btn_Triangle)
         {
@@ -47,7 +47,7 @@ void setup(void)
     _COSC = 0b001;
     _NOSC = 0b001;
     CLKDIV = 0x0000;
-    
+
     setIO();
     setUART();
     setPWM();
@@ -90,6 +90,6 @@ void setIO(void)
     _TRISD7 = 0;
     _TRISF0 = 0;
     _TRISF1 = 0;
-    
+
     return;
 }
