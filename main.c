@@ -13,7 +13,7 @@ int main(void)
     controller.L_angle = 0; // externの方で使う前に確定させる。
 
     setup();
-
+    
     while (1)
     {
         tenkai(&controller);

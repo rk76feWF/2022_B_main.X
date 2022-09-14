@@ -1,8 +1,9 @@
 #include <xc.h>
 #include "user.h"
 #include "function.h"
+#include "moterMain.h"
 
-// リミットスイッチは押されていない時がHIGHT
+// リミットスイッチは押されていない時がLOW
 // NH5が左のリミットスイッチ, NH6に右のリミットスイッチをつける
 // moter5は左, moter6は右
 
@@ -16,21 +17,19 @@ void tenkai(controller_t *ctrl)
     // 展開
     if (ctrl->btn_Circle)
     {
-        if (L_TOP || R_TOP)
-        {
+        if (L_BTM == 0)
             moter(5, 20);
+        if (R_BTM == 0)
             moter(6, 20);
-        }
     }
 
     // 縮小
     if (ctrl->btn_Cross)
     {
-        if (L_BTM || R_BTM)
-        {
+        if (L_TOP == 0)
             moter(5, -20);
+        if (R_TOP == 0)
             moter(6, -20);
-        }
     }
 
     // 展開機構停止
@@ -59,11 +58,19 @@ void setCN(void)
 
 void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void)
 {
-    if (L_TOP == 0 || L_BTM == 0) // 左上 or 左下のリミットスイッチが押されたら
-        moter(5, 0);              // 左のモータを停止
-
-    if (R_TOP == 0 || R_BTM == 0) // 右上 or 右下のリミットスイッチが押されたら
-        moter(6, 0);              // 右のモータを停止
-
+    if (M5S1 || M6S1) // 展開している
+    {
+        if (L_BTM == 1)  // 左が展開し切った
+            moter(5, 0); // 左のモータを停止
+        if (R_BTM == 1)  // 右が展開し切った
+            moter(6, 0); // 右のモータを停止
+    }
+    if (M5S2 || M6S2) // 縮小
+    {
+        if (L_TOP == 1)  // 左が縮小し切った
+            moter(5, 0); // 左のモータを停止
+        if (R_TOP == 1)  // 右が縮小し切った
+            moter(6, 0); // 右のモータを停止
+    }
     _CNIF = 0;
 }
