@@ -16,26 +16,7 @@ int main(void)
 
     while (1)
     {
-        // 展開
-        if (controller.btn_Circle)
-        {
-            moter(5, 20);
-            moter(6, 20);
-        }
-
-        // 縮小
-        if (controller.btn_Cross)
-        {
-            moter(5, -20);
-            moter(6, -20);
-        }
-
-        // 展開機構停止
-        if (controller.btn_Triangle)
-        {
-            moter(5, 0);
-            moter(6, 0);
-        }
+        tenkai(&controller);
     }
 
     return 0;
@@ -52,6 +33,7 @@ void setup(void)
     setUART();
     setPWM();
     setTimer();
+    setCN();
 
     return;
 }
