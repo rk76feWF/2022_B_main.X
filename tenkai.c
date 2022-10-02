@@ -39,14 +39,15 @@ void tenkai(controller_t *ctrl)
         moter(6, 0);
     }
 
+    if (ctrl->btn_L1)
+        U3TXREG = 0x99;
     if (ctrl->btn_L2)
-    {
         U3TXREG = 0x88;
-    }
+
+    if (ctrl->btn_R1)
+        U4TXREG = 0x99;
     if (ctrl->btn_R2)
-    {
         U4TXREG = 0x88;
-    }
 
     return;
 }
