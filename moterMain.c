@@ -8,16 +8,16 @@ void drive(double *moterMain, controller_t *controller)
     omni4vector(moterMain, controller->L_angle, controller->L_scalar);
 
     // 回転
-    moterMain[0] += (int)(controller->Rx_scalar * 100 / 64);
-    moterMain[1] += (int)(controller->Rx_scalar * 100 / 64);
-    moterMain[2] += (int)(controller->Rx_scalar * 100 / 64);
-    moterMain[3] += (int)(controller->Rx_scalar * 100 / 64);
+    moterMain[0] -= (int)(controller->Rx_scalar * 100 / 64) / 2;
+    moterMain[1] -= (int)(controller->Rx_scalar * 100 / 64) / 2;
+    moterMain[2] -= (int)(controller->Rx_scalar * 100 / 64) / 2;
+    moterMain[3] -= (int)(controller->Rx_scalar * 100 / 64) / 2;
 
     // モーター操作
-    moter(1, moterMain[0]);
-    moter(2, moterMain[1]);
-    moter(3, moterMain[2]);
-    moter(4, moterMain[3]);
+    moter(1, -moterMain[0]);
+    moter(2, -moterMain[1]);
+    moter(3, -moterMain[2]);
+    moter(4, -moterMain[3]);
 
     return;
 }
