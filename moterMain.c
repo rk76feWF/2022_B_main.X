@@ -15,7 +15,7 @@ void drive(double *moterMain, controller_t *controller)
 
     for (int i = 0; i < 4; i++)
     {
-        if (fabs(moterMain[i] - cMoterMain[i]) <= 0.01)
+        if (fabs(moterMain[i] - cMoterMain[i]) <= 0.01) // double型の比較なので、誤差を考慮
             cMoterMain[i] = 0;
         else
             cMoterMain[i] += ((double)(moterMain[i] - cMoterMain[i]) * 0.5);
