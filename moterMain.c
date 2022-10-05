@@ -3,6 +3,8 @@
 #include "function.h"
 #include <math.h>
 
+static double cMoterMain[4] = {0, 0, 0, 0};
+
 void drive(double *moterMain, controller_t *controller)
 {
     omni4vector(moterMain, controller->L_angle, controller->L_scalar);
@@ -13,11 +15,15 @@ void drive(double *moterMain, controller_t *controller)
     moterMain[2] -= (int)(controller->Rx_scalar * 100 / 64) / 2;
     moterMain[3] -= (int)(controller->Rx_scalar * 100 / 64) / 2;
 
+    cMoterMain[0] += ((double)(moterMain[0] - cMoterMain[0]) * 0.5);
+    cMoterMain[1] += ((double)(moterMain[1] - cMoterMain[1]) * 0.5);
+    cMoterMain[2] += ((double)(moterMain[2] - cMoterMain[2]) * 0.5);
+    cMoterMain[3] += ((double)(moterMain[3] - cMoterMain[3]) * 0.5);
     // モーター操作
-    moter(1, -moterMain[0]);
-    moter(2, -moterMain[1]);
-    moter(3, -moterMain[2]);
-    moter(4, -moterMain[3]);
+    moter(1, -cMoterMain[0]);
+    moter(2, -cMoterMain[1]);
+    moter(3, -cMoterMain[2]);
+    moter(4, -cMoterMain[3]);
 
     return;
 }
