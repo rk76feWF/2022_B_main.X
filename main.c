@@ -6,7 +6,8 @@
 #include <stdio.h>
 
 controller_t controller;
-double moterMain[4];
+double moterMain[4] = {0, 0, 0, 0};
+double cMoterMain[4] = {0, 0, 0, 0};
 
 int main(void)
 {
