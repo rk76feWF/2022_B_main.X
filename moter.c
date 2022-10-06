@@ -3,7 +3,15 @@
 #include "function.h"
 #include <math.h>
 
-extern double cMoterMain[4];
+extern controller_t controller;
+double moterMain[4] = {0, 0, 0, 0};
+double cMoterMain[4] = {0, 0, 0, 0};
+
+void __attribute__((interrupt, no_auto_psv)) _T4Interrupt(void)
+{
+    drive(moterMain, &controller);
+    _T4IF = 0;
+}
 
 void drive(double *moterMain, controller_t *controller)
 {
@@ -73,5 +81,55 @@ void moter(int number, double power)
         OC6R = (int)(fabs(power) * F_CYCLE / 100.0);
         break;
     }
+    return;
+}
+
+void setMoter(void)
+{
+    OC1CON1 = 0b0001110000000110;
+    OC1CON2 = 0b0000000000011111;
+    _RP21R = 18;
+    OC1R = 0;
+    OC1RS = F_CYCLE;
+
+    OC2CON1 = 0b0001110000000110;
+    OC2CON2 = 0b0000000000011111;
+    _RP26R = 19;
+    OC2R = 0;
+    OC2RS = F_CYCLE;
+
+    OC3CON1 = 0b0001110000000110;
+    OC3CON2 = 0b0000000000011111;
+    _RP25R = 20;
+    OC3R = 0;
+    OC3RS = F_CYCLE;
+
+    OC4CON1 = 0b0001110000000110;
+    OC4CON2 = 0b0000000000011111;
+    _RP20R = 21;
+    OC4R = 0;
+    OC4RS = F_CYCLE;
+
+    OC5CON1 = 0b0001110000000110;
+    OC5CON2 = 0b0000000000011111;
+    _RP23R = 22;
+    OC5R = 0;
+    OC5RS = F_CYCLE;
+
+    OC6CON1 = 0b0001110000000110;
+    OC6CON2 = 0b0000000000011111;
+    _RP22R = 23;
+    OC6R = 0;
+    OC6RS = F_CYCLE;
+
+    // (1/16000000*256分周期*3125 = 0.05...(s))
+    T4CON = 0x0000;
+    T4CONbits.TCKPS = 0b11;
+    PR4 = 3125;
+    _T4IP = 2;
+    _T4IF = 0;
+    _T4IE = 1;
+    T4CONbits.TON = 1;
+
     return;
 }
