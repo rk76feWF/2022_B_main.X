@@ -5,22 +5,19 @@
 #include <libpic30.h>
 #include <stdio.h>
 
-controller_t controller;
+extern controller_t controller;
 double moterMain[4] = {0, 0, 0, 0};
 double cMoterMain[4] = {0, 0, 0, 0};
 
 int main(void)
 {
-    controller.L_angle = 0; // externの方で使う前に確定させる。
+    // controller.L_angle = 0; // externの方で使う前に確定させる。
 
     setup();
 
     while (1)
     {
         tenkai(&controller);
-
-        U1TXREG = 'a';
-        __delay_ms(100);
     }
 
     return 0;
@@ -36,6 +33,7 @@ void setup(void)
     setIO();
     setUART();
     setPWM();
+    setCtrl();
     setTimer();
     setCN();
 

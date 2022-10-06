@@ -4,6 +4,33 @@
 
 extern controller_t controller;
 
+void setUART(void)
+{
+    setU1(38400);
+    setU3(38400);
+    setU4(38400);
+
+    return;
+}
+
+void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
+{
+    // U1TXREG = U1RXREG;
+    _U1RXIF = 0;
+}
+
+void __attribute__((interrupt, no_auto_psv)) _U3RXInterrupt(void)
+{
+    // U3TXREG = U3RXREG;
+    _U3RXIF = 0;
+}
+
+void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void)
+{
+    // U4TXREG = U4RXREG;
+    _U4RXIF = 0;
+}
+
 void setU1(long BRG)
 {
     // U1のピンの設定
@@ -91,41 +118,6 @@ void setU4(long BRG)
     U4STAbits.UTXEN = 1;   // 送信有効化
 
     return;
-}
-
-void setUART(void)
-{
-    setU1(38400);
-    setU2(38400);
-    setU3(38400);
-    setU4(38400);
-
-    return;
-}
-
-void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
-{
-    // U1TXREG = U1RXREG;
-    _U1RXIF = 0;
-}
-
-void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void)
-{
-    enqueue(&controller.FIFO, U2RXREG);
-
-    _U2RXIF = 0;
-}
-
-void __attribute__((interrupt, no_auto_psv)) _U3RXInterrupt(void)
-{
-    // U3TXREG = U3RXREG;
-    _U3RXIF = 0;
-}
-
-void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void)
-{
-    // U4TXREG = U4RXREG;
-    _U4RXIF = 0;
 }
 
 void prints(char *text)

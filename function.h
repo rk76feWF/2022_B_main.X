@@ -29,6 +29,7 @@ void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void);
 int enqueue(queue_t *que, data_t enq_data);
 int dequeue(queue_t *que, data_t *deq_data);
 
+void setCtrl(void);
 int readController(controller_t *controller_data);
 void convertXY(int x, int y, double *angle, double *power);
 
