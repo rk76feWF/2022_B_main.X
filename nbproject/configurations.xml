@@ -24,6 +24,7 @@
       <itemPath>moter.c</itemPath>
       <itemPath>deployment.c</itemPath>
       <itemPath>ctrl_btn.c</itemPath>
+      <itemPath>led.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

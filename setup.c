@@ -14,6 +14,7 @@ void setup(void)
     setCtrl();
     setMoter();
     setDeployment();
+    setLED();
 
     return;
 }

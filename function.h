@@ -48,4 +48,8 @@ void ctrl_btn(controller_t *ctrl);
 void setDeployment(void);
 void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void);
 
+// LED
+void setLED(void);
+void __attribute__((interrupt, no_auto_psv)) _T3Interrupt(void);
+
 #endif /* FUNCTION_H */
