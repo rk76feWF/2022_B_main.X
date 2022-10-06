@@ -10,7 +10,6 @@
 
 #include "user.h"
 #include "controller.h"
-#include "moterMain.h"
 
 void setup(void);
 void setIO(void);
@@ -26,6 +25,7 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
 void __attribute__((interrupt, no_auto_psv)) _U3RXInterrupt(void);
 void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void);
 
+// Queue
 int enqueue(queue_t *que, data_t enq_data);
 int dequeue(queue_t *que, data_t *deq_data);
 
@@ -43,6 +43,7 @@ void omni4vector(double *moterMain, double angle, double power);
 void moter(int number, double power);
 void setMoter(void);
 
+// 展開
 void tenkai(controller_t *ctrl);
 void setCN(void);
 void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void);

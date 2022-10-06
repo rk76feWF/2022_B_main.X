@@ -9,6 +9,7 @@ double cMoterMain[4] = {0, 0, 0, 0};
 
 void __attribute__((interrupt, no_auto_psv)) _T4Interrupt(void)
 {
+    // 0.05秒周期
     drive(moterMain, &controller);
     _T4IF = 0;
 }

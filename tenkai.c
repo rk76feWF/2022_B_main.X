@@ -1,7 +1,6 @@
 #include <xc.h>
 #include "user.h"
 #include "function.h"
-#include "moterMain.h"
 
 // リミットスイッチは押されていない時がLOW
 // NH5が左のリミットスイッチ, NH6に右のリミットスイッチをつける

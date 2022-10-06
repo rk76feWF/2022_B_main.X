@@ -29,6 +29,7 @@ void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
 {
+    // 0.00528秒周期
     static int cnt = 0;
     if (readController(&controller))
         cnt++;

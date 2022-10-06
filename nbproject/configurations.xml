@@ -8,7 +8,6 @@
       <itemPath>user.h</itemPath>
       <itemPath>function.h</itemPath>
       <itemPath>controller.h</itemPath>
-      <itemPath>moterMain.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
