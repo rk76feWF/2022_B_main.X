@@ -47,6 +47,9 @@ void omni4vector(double *moterMain, double angle, double power)
 
 void moter(int number, double power)
 {
+    if (controller.status == 0)
+        power = 0;
+
     int S1 = 0, S2 = 0;
     if (power > 0)
         S1 = 1, S2 = 0;
@@ -82,6 +85,7 @@ void moter(int number, double power)
         OC6R = (int)(fabs(power) * F_CYCLE / 100.0);
         break;
     }
+
     return;
 }
 
