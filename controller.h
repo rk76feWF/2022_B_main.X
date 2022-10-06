@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   controller.h
  * Author: rk76fewf
  *
@@ -6,7 +6,7 @@
  */
 
 #ifndef CONTROLLER_H
-#define	CONTROLLER_H
+#define CONTROLLER_H
 
 #include "user.h"
 #include <stdbool.h>
@@ -48,5 +48,4 @@ typedef struct
 
 } controller_t;
 
-#endif	/* CONTROLLER_H */
-
+#endif /* CONTROLLER_H */

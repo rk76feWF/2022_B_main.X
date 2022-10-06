@@ -18,6 +18,9 @@ int main(void)
     while (1)
     {
         tenkai(&controller);
+
+        U1TXREG = 'a';
+        __delay_ms(100);
     }
 
     return 0;

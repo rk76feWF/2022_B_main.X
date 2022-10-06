@@ -15,6 +15,10 @@
 void setup(void);
 void setIO(void);
 void setUART(void);
+void setU1(long BRG);
+void setU2(long BRG);
+void setU3(long BRG);
+void setU4(long BRG);
 void prints(char *text);
 
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void);
