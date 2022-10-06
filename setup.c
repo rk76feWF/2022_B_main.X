@@ -13,7 +13,7 @@ void setup(void)
     setUART();
     setCtrl();
     setMoter();
-    setCN();
+    setDeployment();
 
     return;
 }

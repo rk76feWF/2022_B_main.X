@@ -20,9 +20,10 @@
       <itemPath>uart.c</itemPath>
       <itemPath>FIFO.c</itemPath>
       <itemPath>controller.c</itemPath>
-      <itemPath>tenkai.c</itemPath>
       <itemPath>setup.c</itemPath>
       <itemPath>moter.c</itemPath>
+      <itemPath>deployment.c</itemPath>
+      <itemPath>ctrl_btn.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

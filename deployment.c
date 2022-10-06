@@ -6,52 +6,7 @@
 // NH5が左のリミットスイッチ, NH6に右のリミットスイッチをつける
 // moter5は左, moter6は右
 
-#define L_TOP _RF7
-#define L_BTM _RC12
-#define R_TOP _RC15
-#define R_BTM _RD10
-
-void tenkai(controller_t *ctrl)
-{
-    // 展開
-    if (ctrl->btn_Circle)
-    {
-        if (L_BTM == 0)
-            moter(5, 20);
-        if (R_BTM == 0)
-            moter(6, 20);
-    }
-
-    // 縮小
-    if (ctrl->btn_Cross)
-    {
-        if (L_TOP == 0)
-            moter(5, -20);
-        if (R_TOP == 0)
-            moter(6, -20);
-    }
-
-    // 展開機構停止
-    if (ctrl->btn_Triangle)
-    {
-        moter(5, 0);
-        moter(6, 0);
-    }
-
-    if (ctrl->btn_L1)
-        U3TXREG = 0x99;
-    if (ctrl->btn_L2)
-        U3TXREG = 0x88;
-
-    if (ctrl->btn_R1)
-        U4TXREG = 0x99;
-    if (ctrl->btn_R2)
-        U4TXREG = 0x88;
-
-    return;
-}
-
-void setCN(void)
+void setDeployment(void)
 {
     _CNIE = 1; // 割り込みを有効化
     _CNIF = 0; // 割り込みのフラグを下げる

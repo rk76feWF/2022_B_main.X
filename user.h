@@ -38,4 +38,10 @@ typedef struct
 #define M6S1 (_LATF0)
 #define M6S2 (_LATF1)
 
+// Deployment
+#define L_TOP _RF7
+#define L_BTM _RC12
+#define R_TOP _RC15
+#define R_BTM _RD10
+
 #endif /* USER_H */

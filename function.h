@@ -44,8 +44,8 @@ void moter(int number, double power);
 void setMoter(void);
 
 // 展開
-void tenkai(controller_t *ctrl);
-void setCN(void);
+void ctrl_btn(controller_t *ctrl);
+void setDeployment(void);
 void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void);
 
 #endif /* FUNCTION_H */

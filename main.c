@@ -12,7 +12,7 @@ int main(void)
 
     while (1)
     {
-        tenkai(&controller);
+        ctrl_btn(&controller);
     }
 
     return 0;
