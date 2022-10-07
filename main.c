@@ -15,6 +15,8 @@ int main(void)
     {
         if (controller.type == 0) // PS3
             ctrl_btn_ps3(&controller);
+        else if (controller.type == 1) // Original
+            ctrl_btn_original(&controller);
     }
 
     return 0;

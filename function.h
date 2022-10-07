@@ -46,6 +46,7 @@ void setMoter(void);
 
 // 展開
 void ctrl_btn_ps3(controller_t *ctrl);
+void ctrl_btn_original(controller_t *ctrl);
 void setDeployment(void);
 void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void);
 

@@ -50,3 +50,30 @@ void ctrl_btn_ps3(controller_t *ctrl)
 
     return;
 }
+
+void ctrl_btn_original(controller_t *ctrl)
+{
+    // 展開
+    if (ctrl->btn_Circle)
+        deploy();
+
+    // 縮小
+    if (ctrl->btn_Cross)
+        folding();
+
+    // 展開機構停止
+    if (ctrl->btn_Triangle)
+        stop();
+
+    if (ctrl->btn_L1)
+        U3TXREG = 0x99;
+    if (ctrl->btn_L2)
+        U3TXREG = 0x88;
+
+    if (ctrl->btn_R1)
+        U4TXREG = 0x99;
+    if (ctrl->btn_R2)
+        U4TXREG = 0x88;
+
+    return;
+}
