@@ -8,11 +8,13 @@ extern controller_t controller;
 int main(void)
 {
 
+    controller.type = 0; // PS3
     setup();
 
     while (1)
     {
-        ctrl_btn(&controller);
+        if (controller.type == 0) // PS3
+            ctrl_btn_ps3(&controller);
     }
 
     return 0;

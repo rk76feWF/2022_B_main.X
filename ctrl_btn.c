@@ -24,7 +24,7 @@ static inline void stop(void)
 
 // -----------------------------------------------
 
-void ctrl_btn(controller_t *ctrl)
+void ctrl_btn_ps3(controller_t *ctrl)
 {
     // 展開
     if (ctrl->btn_Circle)

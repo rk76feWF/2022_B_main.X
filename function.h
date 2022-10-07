@@ -31,7 +31,7 @@ int dequeue(queue_t *que, data_t *deq_data);
 
 // Controller
 void setCtrl(void);
-int readController(controller_t *controller_data);
+int readPS3Controller(controller_t *controller_data);
 void convertXY(int x, int y, double *angle, double *power);
 void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void);
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void);
@@ -44,7 +44,7 @@ void moter(int number, double power);
 void setMoter(void);
 
 // 展開
-void ctrl_btn(controller_t *ctrl);
+void ctrl_btn_ps3(controller_t *ctrl);
 void setDeployment(void);
 void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void);
 

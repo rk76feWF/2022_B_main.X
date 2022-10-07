@@ -21,6 +21,7 @@ typedef struct
     data_t Read_data[7];
 
     // DATA
+    int type;
     bool status;
     double L_angle;
     double L_scalar;
