@@ -16,6 +16,13 @@ void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
         else
             cnt = 0;
     }
+    else if (controller.type == 1) // Original
+    {
+        if (readOriginalController(&controller))
+            cnt++;
+        else
+            cnt = 0;
+    }
 
     if (cnt >= 30)
     {
@@ -42,7 +49,7 @@ void setCtrl(void)
     if (controller.type == 0) // PS3
         setU2(38400);
     else if (controller.type == 1) // Original
-        setU2(115200);
+        setU2(38400);
 
     T2CON = 0x0000;
     T2CONbits.TCKPS = 0b11;

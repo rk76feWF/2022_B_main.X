@@ -32,6 +32,7 @@ int dequeue(queue_t *que, data_t *deq_data);
 // Controller
 void setCtrl(void);
 int readPS3Controller(controller_t *controller_data);
+int readOriginalController(controller_t *controller_data);
 void convertXY(int x, int y, double *angle, double *power);
 void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void);
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void);
