@@ -11,6 +11,40 @@
 #include "user.h"
 #include <stdbool.h>
 
+union btn
+{
+    struct
+    {
+        bool LOCK : 1;
+        bool b01 : 1;
+        bool FUNC6 : 1;
+        bool FUNC5 : 1;
+        bool FUNC4 : 1;
+        bool FUNC3 : 1;
+        bool FUNC2 : 1;
+        bool FUNC1 : 1;
+
+        bool b08 : 1;
+        bool b09 : 1;
+        bool ZR : 1;
+        bool R : 1;
+        bool R_Circle : 1;
+        bool R_Cross : 1;
+        bool R_Square : 1;
+        bool R_Triangle : 1;
+
+        bool b16 : 1;
+        bool b17 : 1;
+        bool ZL : 1;
+        bool L : 1;
+        bool L_RIGHT : 1;
+        bool L_DOWN : 1;
+        bool L_LEFT : 1;
+        bool L_UP : 1;
+    };
+    unsigned char chr[3];
+};
+
 typedef struct
 {
     // FIFO
@@ -33,20 +67,7 @@ typedef struct
     int Rx_scalar;
     int Ry_scalar;
 
-    bool btn_UP;
-    bool btn_DOWN;
-    bool btn_RIGHT;
-    bool btn_LEFT;
-
-    bool btn_Triangle;
-    bool btn_Cross;
-    bool btn_Circle;
-    bool btn_Square;
-
-    bool btn_L1;
-    bool btn_L2;
-    bool btn_R1;
-    bool btn_R2;
+    union btn btn;
 
 } controller_t;
 
