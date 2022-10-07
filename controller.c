@@ -49,7 +49,7 @@ void setCtrl(void)
     if (controller.type == 0) // PS3
         setU2(38400);
     else if (controller.type == 1) // Original
-        setU2(38400);
+        setU2(115200);
 
     T2CON = 0x0000;
     T2CONbits.TCKPS = 0b11;

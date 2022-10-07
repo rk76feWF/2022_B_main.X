@@ -44,12 +44,11 @@ void setU1(long BRG)
     U1STA = 0x0000;
     U1MODEbits.BRGH = 1;           // 高速ボーレートモード
     U1BRG = (FCY / (4 * BRG)) - 1; // ボーレート設定
-    // U1BRG = BRG;
-    _U1RXIE = 1;           // 割り込みを有効化
-    _U1RXIF = 0;           // 割り込みのフラグを下げる
-    _U1RXIP = 7;           // 割り込み優先度の設定
-    U1MODEbits.UARTEN = 1; // UART有効化
-    U1STAbits.UTXEN = 1;   // 送信有効化
+    _U1RXIE = 1;                   // 割り込みを有効化
+    _U1RXIF = 0;                   // 割り込みのフラグを下げる
+    _U1RXIP = 7;                   // 割り込み優先度の設定
+    U1MODEbits.UARTEN = 1;         // UART有効化
+    U1STAbits.UTXEN = 1;           // 送信有効化
 
     return;
 }
@@ -65,13 +64,13 @@ void setU2(long BRG)
     // U2モジュールの設定
     U2MODE = 0x0000;
     U2STA = 0x0000;
-    U2MODEbits.BRGH = 1;   // 高速ボーレートモード
-    U2BRG = 103;           // ボーレート設定
-    _U2RXIE = 1;           // 割り込みを有効化
-    _U2RXIF = 0;           // 割り込みのフラグを下げる
-    _U2RXIP = 7;           // 割り込み優先度の設定
-    U2MODEbits.UARTEN = 1; // UART有効化
-    U2STAbits.UTXEN = 1;   // 送信有効化
+    U2MODEbits.BRGH = 1;           // 高速ボーレートモード
+    U2BRG = (FCY / (4 * BRG)) - 1; // ボーレート設定
+    _U2RXIE = 1;                   // 割り込みを有効化
+    _U2RXIF = 0;                   // 割り込みのフラグを下げる
+    _U2RXIP = 7;                   // 割り込み優先度の設定
+    U2MODEbits.UARTEN = 1;         // UART有効化
+    U2STAbits.UTXEN = 1;           // 送信有効化
 
     return;
 }
@@ -87,13 +86,13 @@ void setU3(long BRG)
     // U3モジュールの設定
     U3MODE = 0x0000;
     U3STA = 0x0000;
-    U3MODEbits.BRGH = 1;   // 高速ボーレートモード
-    U3BRG = 103;           // ボーレート設定
-    _U3RXIE = 1;           // 割り込みを有効化
-    _U3RXIF = 0;           // 割り込みのフラグを下げる
-    _U3RXIP = 1;           // 割り込み優先度の設定
-    U3MODEbits.UARTEN = 1; // UART有効化
-    U3STAbits.UTXEN = 1;   // 送信有効化
+    U3MODEbits.BRGH = 1;           // 高速ボーレートモード
+    U3BRG = (FCY / (4 * BRG)) - 1; // ボーレート設定
+    _U3RXIE = 1;                   // 割り込みを有効化
+    _U3RXIF = 0;                   // 割り込みのフラグを下げる
+    _U3RXIP = 1;                   // 割り込み優先度の設定
+    U3MODEbits.UARTEN = 1;         // UART有効化
+    U3STAbits.UTXEN = 1;           // 送信有効化
 
     return;
 }
@@ -109,13 +108,13 @@ void setU4(long BRG)
     // U4モジュールの設定
     U4MODE = 0x0000;
     U4STA = 0x0000;
-    U4MODEbits.BRGH = 1;   // 高速ボーレートモード
-    U4BRG = 103;           // ボーレート設定
-    _U4RXIE = 1;           // 割り込みを有効化
-    _U4RXIF = 0;           // 割り込みのフラグを下げる
-    _U4RXIP = 1;           // 割り込み優先度の設定
-    U4MODEbits.UARTEN = 1; // UART有効化
-    U4STAbits.UTXEN = 1;   // 送信有効化
+    U4MODEbits.BRGH = 1;           // 高速ボーレートモード
+    U4BRG = (FCY / (4 * BRG)) - 1; // ボーレート設定
+    _U4RXIE = 1;                   // 割り込みを有効化
+    _U4RXIF = 0;                   // 割り込みのフラグを下げる
+    _U4RXIP = 1;                   // 割り込み優先度の設定
+    U4MODEbits.UARTEN = 1;         // UART有効化
+    U4STAbits.UTXEN = 1;           // 送信有効化
 
     return;
 }

@@ -8,7 +8,7 @@ extern controller_t controller;
 int main(void)
 {
 
-    controller.type = 1; // PS3
+    controller.type = 0; // PS3
     setup();
 
     while (1)
