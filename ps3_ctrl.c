@@ -43,10 +43,10 @@ int readPS3Controller(controller_t *controller_data)
                 controller_data->btn.R_Circle = controller_data->Read_data[1] == 0x40;
                 controller_data->btn.R_Square = controller_data->Read_data[0] == 0x01;
 
-                // controller_data->btn_L1 = controller_data->Read_data[0] == 0x02;
-                // controller_data->btn_L2 = controller_data->Read_data[0] == 0x04;
-                // controller_data->btn_R1 = controller_data->Read_data[0] == 0x08;
-                // controller_data->btn_R2 = controller_data->Read_data[0] == 0x10;
+                controller_data->btn.L1 = controller_data->Read_data[0] == 0x02;
+                controller_data->btn.L2 = controller_data->Read_data[0] == 0x04;
+                controller_data->btn.R1 = controller_data->Read_data[0] == 0x08;
+                controller_data->btn.R2 = controller_data->Read_data[0] == 0x10;
 
                 controller_data->status = 1;
             }

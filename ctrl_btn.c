@@ -38,15 +38,15 @@ void ctrl_btn_ps3(controller_t *ctrl)
     if (ctrl->btn.R_Triangle)
         stop();
 
-    // if (ctrl->btn_L1)
-    //     U3TXREG = 0x99;
-    // if (ctrl->btn_L2)
-    //     U3TXREG = 0x88;
+    if (ctrl->btn.L1)
+        U3TXREG = 0x99;
+    if (ctrl->btn.L2)
+        U3TXREG = 0x88;
 
-    // if (ctrl->btn_R1)
-    //     U4TXREG = 0x99;
-    // if (ctrl->btn_R2)
-    //     U4TXREG = 0x88;
+    if (ctrl->btn.R1)
+        U4TXREG = 0x99;
+    if (ctrl->btn.R2)
+        U4TXREG = 0x88;
 
     return;
 }
@@ -66,15 +66,15 @@ void ctrl_btn_original(controller_t *ctrl)
         stop();
     // 展開
 
-    // if (ctrl->btn_L1)
-    //     U3TXREG = 0x99;
-    // if (ctrl->btn_L2)
-    //     U3TXREG = 0x88;
+    if (ctrl->btn.L1)
+        U3TXREG = 0x99;
+    if (ctrl->btn.L2)
+        U3TXREG = 0x88;
 
-    // if (ctrl->btn_R1)
-    //     U4TXREG = 0x99;
-    // if (ctrl->btn_R2)
-    //     U4TXREG = 0x88;
+    if (ctrl->btn.R1)
+        U4TXREG = 0x99;
+    if (ctrl->btn.R2)
+        U4TXREG = 0x88;
 
     return;
 }

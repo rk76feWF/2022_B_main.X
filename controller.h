@@ -15,32 +15,32 @@ union btn
 {
     struct
     {
-        bool LOCK : 1;
-        bool b01 : 1;
-        bool FUNC6 : 1;
-        bool FUNC5 : 1;
-        bool FUNC4 : 1;
-        bool FUNC3 : 1;
-        bool FUNC2 : 1;
         bool FUNC1 : 1;
+        bool FUNC2 : 1;
+        bool FUNC3 : 1;
+        bool FUNC4 : 1;
+        bool FUNC5 : 1;
+        bool FUNC6 : 1;
+        bool b01 : 1;
+        bool LOCK : 1;
 
-        bool b08 : 1;
-        bool b09 : 1;
-        bool ZR : 1;
-        bool R : 1;
-        bool R_Circle : 1;
-        bool R_Cross : 1;
-        bool R_Square : 1;
         bool R_Triangle : 1;
+        bool R_Square : 1;
+        bool R_Cross : 1;
+        bool R_Circle : 1;
+        bool R1 : 1;
+        bool R2 : 1;
+        bool b09 : 1;
+        bool b08 : 1;
 
-        bool b16 : 1;
-        bool b17 : 1;
-        bool ZL : 1;
-        bool L : 1;
-        bool L_RIGHT : 1;
-        bool L_DOWN : 1;
-        bool L_LEFT : 1;
         bool L_UP : 1;
+        bool L_LEFT : 1;
+        bool L_DOWN : 1;
+        bool L_RIGHT : 1;
+        bool L1 : 1;
+        bool L2 : 1;
+        bool b17 : 1;
+        bool b16 : 1;
     };
     unsigned char chr[3];
 };

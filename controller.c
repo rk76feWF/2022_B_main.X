@@ -7,7 +7,7 @@ controller_t controller;
 
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
 {
-    // 0.0016秒周期
+    // 0.0032秒周期
     static int cnt = 0;
     if (controller.type == 0) // PS3
     {
@@ -24,7 +24,7 @@ void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void)
             cnt = 0;
     }
 
-    if (cnt >= 30)
+    if (cnt >= 100)
     {
         // コントローラーとの接続が切れたとき
 
@@ -53,8 +53,8 @@ void setCtrl(void)
 
     T2CON = 0x0000;
     T2CONbits.TCKPS = 0b11;
-    // (1/16000000*256分周期*100= 0.0016...(s))
-    PR2 = 100;
+    // (1/16000000*256分周期*100= 0.0032...(s))
+    PR2 = 200;
     _T2IP = 3;
     _T2IF = 0;
     _T2IE = 1;
