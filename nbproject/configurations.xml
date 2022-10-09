@@ -24,7 +24,6 @@
       <itemPath>moter.c</itemPath>
       <itemPath>deployment.c</itemPath>
       <itemPath>ctrl_btn.c</itemPath>
-      <itemPath>led.c</itemPath>
       <itemPath>ps3_ctrl.c</itemPath>
       <itemPath>original_ctrl.c</itemPath>
     </logicalFolder>

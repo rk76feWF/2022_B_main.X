@@ -14,7 +14,7 @@ void setup(void)
     setCtrl();
     setMoter();
     setDeployment();
-    setLED();
+    setModule();
 
     return;
 }
@@ -53,6 +53,8 @@ void setIO(void)
     _TRISD7 = 0;
     _TRISF0 = 0;
     _TRISF1 = 0;
+
+    _TRISB6 = 0;
 
     return;
 }
